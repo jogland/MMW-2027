@@ -8,13 +8,45 @@ references: brand-core.md
 > layout, component, and responsive rules specific to web artifacts.
 > Not built in Canva — built directly as HTML/React from this spec.
 
-## 1. Grid (see brand-core.md §4 for canonical values)
+## 1. Grid — two systems, don't conflate them
+
+### 1a. Content grid (see brand-core.md §4 for canonical values)
+Applies to: conventional content components — card grids, footer columns,
+forms, news cards.
+
 | Property | Value |
 |---|---|
 | Columns | 12 |
 | Gutter | 24px |
 | Margin | 80px desktop / 16px mobile |
 | Max content width | 1200px |
+
+### 1b. Full-bleed section grid (desktop)
+Applies to: hero and all full-bleed background sections. This is a
+**structural** grid, not decorative — it governs horizontal alignment of
+text blocks, images, and highlight-boxes across the entire section.
+
+| Property | Value |
+|---|---|
+| Columns | 9 |
+| Gutter | 0 (no gutter — column edges are flush) |
+| Margin | edge-to-edge (full viewport width, no side margin) |
+| Alignment | elements snap to column edges, both left/right start-points
+  and, in most cases, to the same horizontal row-lines as neighboring
+  elements (text blocks and images sharing a "row" align their tops) |
+| Visual overlay | the yellow grid lines are this grid made visible — the
+  underlying structure is real, not an applied texture |
+
+**Mobile:** the 9-column grid collapses to a single stacked column (see
+mobile mockup) — full-bleed sections lose the multi-column alignment and
+elements stack top-to-bottom at full width. Treat 1a's mobile margin (16px)
+as the baseline for mobile full-bleed sections too.
+
+**Do not merge these two systems.** The 12-col content grid should never be
+asked to align to the 9-col background grid or vice versa — they operate at
+different z-index layers with different jobs, and forcing one to match the
+other's math (12 vs. 9 don't share clean fraction boundaries) will produce
+alignment bugs.
 
 ## 2. Components
 | Component | States | Breakpoint behavior |
