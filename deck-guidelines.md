@@ -26,12 +26,30 @@ correctly baked in. Useful as:
 This template does not support autofill (empty dataset) — using it directly
 means copying pages and editing text by hand, not automated population.
 
+**Additional reference:** a separate "MMW 27 Slide Deck Template" Figma file
+(12 real 1920×1080 frames) exists alongside the Canva template above. 5 of
+its 12 frames — title, founder quote, section statement, pull-quote close,
+and a dense-list/audience-grid layout — are recreated as real HTML in the
+MMW8 Design System's `slides/` directory and are safe to use as ground truth
+alongside the Canva template. The remaining 4 frames (metrics/stat-heavy
+layouts) render their headline/body text as hand-outlined vector paths
+rather than live text in the Figma source, so their exact copy/layout isn't
+reconstructable from that file — treat those as an open gap, not yet backed
+by a recreated reference.
+
 ## 2. Grid (see brand-core.md §4 for the canonical formula)
-Square size = shorter canvas side ÷ 5. For the standard 1080×1920 or
-1920×1080 deck canvas, square = 216px. Do not use a fixed column/gutter
-grid — the visible yellow square grid IS the layout system. See
-brand-core.md §4 for the fill-square, dot-marker, and heading-ratio rules
-that govern how content sits within it.
+Decks use the **12-square grid**, same system as web — not the 5-square
+social/poster formula. Square size = canvas width ÷ 12. Decks are
+**landscape-only at 1920×1080** (per the source Figma deck template — there
+is no confirmed portrait deck format), so square = 160px, tiling to 6.75
+squares tall (expected — only the width needs to divide evenly). Do not use
+a fixed column/gutter grid — the visible yellow square grid IS the layout
+system. All slide elements (headline blocks, image panels, quote blocks,
+logo lockup) snap to this grid — never placed off-grid. See brand-core.md
+§4 for the fill-square, dot-marker, and heading-sizing rules that govern how
+content sits within it: headline sizes use the same square ÷ 2 (primary) /
+square ÷ 3 (secondary) formula as every other artifact, computed off the
+deck's own 160px square — 80px primary / 53px secondary.
 
 ## 3. Output contract
 | Slide type | Headline limit    | Body limit                 | Notes                               |
@@ -41,7 +59,3 @@ that govern how content sits within it.
 | Quote      | —                  | ≤25 words                    | attribute below, small caption size    |
 | Closing    | ≤6 words          | CTA ≤3 words                 | logo centered                           |
 
-## 4. Known failure modes
-- Overfilling bullet slides — enforce 3-bullet max even if content wants more (split into 2 slides instead)
-- Centering headlines by default — MMW8 decks are left-aligned unless slide type says otherwise
-- Using free-form AI generation instead of the actual Slide Deck Template — free-form generation does not read this repo and will not reproduce the grid, logo placement, or heading treatment
