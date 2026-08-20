@@ -8,18 +8,7 @@ references: brand-core.md
 > layout, component, and responsive rules specific to web artifacts.
 > Not built in Canva — built directly as HTML/React from this spec.
 
-## 1. Grid — two systems, don't conflate them
-
-### 1a. Content grid (see brand-core.md §4 for canonical values)
-Applies to: conventional content components — card grids, footer columns,
-forms, news cards.
-
-| Property | Value |
-|---|---|
-| Columns | 12 |
-| Gutter | 24px |
-| Margin | 80px desktop / 16px mobile |
-| Max content width | 1200px |
+## 1. Grid
 
 ### 1b. Full-bleed section grid (desktop)
 Applies to: hero and all full-bleed background sections. This is a
